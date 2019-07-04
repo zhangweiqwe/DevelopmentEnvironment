@@ -7,6 +7,7 @@
 #define  TAG    "demo"
 #define LOG_D(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 
+/*
 using namespace std;
 int main(int argc, char *argv[]) {
     LOG_D(".so say hello");
@@ -30,3 +31,36 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
+*/
+
+//https://developer.android.com/training/articles/perf-jni
+//https://github.com/search?l=C%2B%2B&q=JNI_OnUnload+&type=Code
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_cn_wsgwz_myapplication_Jni_stringFromJNI(JNIEnv *env, jobject instance) {
+
+    std::string hello = "Hello from C++\t1";
+
+
+    return env->NewStringUTF(hello.c_str());
+}
+
+/*extern "C"
+JNIEXPORT jstring JNICALL
+Java_cn_wsgwz_myapplication_MainActivity_stringFromJNI(JNIEnv *env, jobject instance) {
+
+    std::string hello = "Hello from C++ UnregisterNatives ";
+
+    jclass clazz = env->FindClass("cn/wsgwz/myapplication/Jni");
+    if (clazz == 0) {
+        LOG_D("JNI_OnUnload FindClass failed!");
+    }
+
+    int result = env->UnregisterNatives(clazz);
+    LOG_D("JNI_OnUnload UnregisterNatives result:%d", result);
+    LOG_D("JNI_OnUnload end==");
+
+
+    return env->NewStringUTF(hello.c_str());
+}*/
