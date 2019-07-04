@@ -7,7 +7,6 @@
 #define  TAG    "demo"
 #define LOG_D(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 
-/*
 using namespace std;
 int main(int argc, char *argv[]) {
     LOG_D(".so say hello");
@@ -31,12 +30,11 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
-*/
 
 //https://developer.android.com/training/articles/perf-jni
 //https://github.com/search?l=C%2B%2B&q=JNI_OnUnload+&type=Code
 
-extern "C"
+/*extern "C"
 JNIEXPORT jstring JNICALL
 Java_cn_wsgwz_myapplication_Jni_stringFromJNI(JNIEnv *env, jobject instance) {
 
@@ -44,7 +42,7 @@ Java_cn_wsgwz_myapplication_Jni_stringFromJNI(JNIEnv *env, jobject instance) {
 
 
     return env->NewStringUTF(hello.c_str());
-}
+}*/
 
 /*extern "C"
 JNIEXPORT jstring JNICALL
