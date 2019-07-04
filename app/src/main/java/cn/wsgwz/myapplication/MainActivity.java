@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/*
+编译执行 工程目录demo.bat
+ */
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
@@ -33,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         tv0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Jni.load();
-                tv0.setText(jni.stringFromJNI());
+                /*Jni.load();
+                tv0.setText(jni.stringFromJNI());*/
 
             }
         });
