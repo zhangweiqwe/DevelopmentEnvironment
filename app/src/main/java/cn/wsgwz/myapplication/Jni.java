@@ -1,19 +1,15 @@
 package cn.wsgwz.myapplication;
 
-import android.content.Context;
 import android.util.Log;
 
 public class Jni {
-
-
     private static final String TAG = "Jni";
 
-    public static int i = 0;
-
-    public static void load() {
-        System.load("/data/data/cn.wsgwz.myapplication/demo" );
-        i++;
+    static {
+        Log.d(TAG, "--> Jni");
+        System.load("/data/data/cn.wsgwz.myapplication/demo.so");
     }
+
 
     /*public static void unLoad(Context context){
         //LibHelper.unloadAllNativeLibs();
@@ -28,4 +24,15 @@ public class Jni {
 
     }*/
     public native String stringFromJNI();
+
+
+    public void print(){
+        Log.d(TAG, "print()");
+
+        try {
+            Log.d(TAG,stringFromJNI());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
