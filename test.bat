@@ -12,6 +12,8 @@ adb shell "su -c './data/local/test.so'"
 
 ::adb shell "su -c 'cat /proc/13638/maps'"
 
+::ps -e | grep 进程名
+
 ::adb push %~dp0app\build\intermediates\transforms\dexBuilder\debug\0\cn\wsgwz\myapplication\Jni.dex /sdcard/Jni.dex
 ::adb shell "su -c 'cp sdcard/Jni.dex /data/data/cn.wsgwz.myapplication/'"
 

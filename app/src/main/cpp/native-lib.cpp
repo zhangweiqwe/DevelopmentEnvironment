@@ -3,6 +3,7 @@
 #include <android/log.h>
 #include "Box.h"
 #include <math.h>
+#include <unistd.h>
 
 #define  TAG    "demo"
 #define LOG_D(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
@@ -17,19 +18,31 @@ int main(int argc, char *argv[]) {
     box.height = 7;
 
 
+    int ip = 10;
+    int *ipPos = &ip;
+
     Box *box1;
     box1 = &box;
 
     string str = "rwrewrrw";
     LOG_D("%lf\t%lf\t%lf\t%lf\t%lf\t%d\t%d", box.height, box.breadth, box.height, box.getHeight(),
           box1->getHeight(), &box, &box1);
-    LOG_D("%s", str.c_str());
-    LOG_D("--\n\n--\n\n----");
+    LOG_D("%s%d\t%#x", str.c_str(),*box1,&box);
+
+    LOG_D("%d\t%#x", ip,&ip);
+    //LOG_D("--\n\n--\n\n----");
 
     for (int i = 1; i <= 20; i++) {
         double result = sin(M_PIl / 180 * i);
         //LOG_D("%lf",result);
     }
+
+    int i=0;
+    while (true){
+        sleep(5);
+        LOG_D("zr%d",i++);
+    }
+
     return 0;
 }
 
