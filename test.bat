@@ -18,4 +18,4 @@ adb shell "su -c './data/local/test.so'"
 ::adb shell "su -c 'cp sdcard/Jni.dex /data/data/cn.wsgwz.myapplication/'"
 
 echo success!!
-::pause
+pause
