@@ -9,8 +9,13 @@
 #include <ostream>
 #include <list>
 #include "DdmConnection.h"
+#include <fstream>
+
+
 #define  TAG    "demo"
 #define LOG_D(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
+
+const char DATA_LOCAL_FILE[100] = "/data/local/file.txt";
 
 using namespace std;
 
@@ -97,9 +102,44 @@ int main(int argc, char *argv[]) {
 
     cout << list_1.size() << endl;
 
-    android::DdmConnection_start("test JavaVM");
+    /*try {
+        android::DdmConnection_start("test JavaVM");
+    }catch (...){
+        cout << "Throw a Exception..." << endl;
+    }*/
 
     //https://github.com/davros-/frameworks_native/blob/bb2b505a87cbecfd5fd9da166e15fbbb852c1721/services/surfaceflinger/DdmConnection.cpp
+
+
+    char data[100] = "fsdafasdfsdfsfd";
+
+    // 以写模式打开文件
+    ofstream outfile;
+    /*char *sd_file = "sdcard/aa.txt";
+    char *data_local_file = "/data/local/test.txt";*/
+    outfile.open(DATA_LOCAL_FILE);
+
+
+
+    //cout <<"outfile.open(\"/data/local/test.txt\")"<<endl;
+    /*cout << "Writing to the file" << endl;
+    cout << "Enter your name: ";
+    cin.getline(data, 100);*/
+
+    // 向文件写入用户输入的数据
+    outfile << data << endl;
+    outfile.close();
+    cout << "outfile.close()" << endl;
+
+    try {
+        double  d = 3/0;
+        cout<<d<<"<--"<<endl;
+    }catch (...){
+        cout << "Throw a Exception..." << endl;
+    }
+
+
+    cout<<"success endl"<<endl;
     return 0;
 }
 
