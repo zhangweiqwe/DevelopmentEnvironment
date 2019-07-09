@@ -10,7 +10,7 @@
 #include <list>
 #include "DdmConnection.h"
 #include <fstream>
-
+#include "Exercise.h"
 
 #define  TAG    "demo"
 #define LOG_D(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
@@ -137,6 +137,9 @@ int main(int argc, char *argv[]) {
     }catch (...){
         cout << "Throw a Exception..." << endl;
     }
+
+    Exercise exercise;
+    exercise.test();
 
 
     cout<<"success endl"<<endl;

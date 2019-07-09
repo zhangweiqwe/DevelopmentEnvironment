@@ -3,3 +3,9 @@
 //
 
 #include "Box.h"
+#include <iostream>
+
+double Box::getHeight() {
+    return height + 0.1;
+}
+

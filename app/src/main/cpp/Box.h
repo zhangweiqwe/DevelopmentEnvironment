@@ -13,13 +13,10 @@ public:
     double height;   // 盒子的高度
 
 public:
-    double getHeight(){
-        return height+0.1;
-    }
+    double getHeight();
 
 
 };
-
 
 
 #endif //MYAPPLICATION27_BOX_H
