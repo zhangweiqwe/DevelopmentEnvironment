@@ -11,6 +11,7 @@
 #include "DdmConnection.h"
 #include <fstream>
 #include "Exercise.h"
+#include "student/StudentManager.h"
 
 #define  TAG    "demo"
 #define LOG_D(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
@@ -66,7 +67,6 @@ int main(int argc, char *argv[]) {
 
     map<int, int>::iterator k1_iterator = m1.find(1);
     cout << m1_iterator->first << endl;
-
 
     //https://www.cnblogs.com/lalalabi/p/5060210.html
     list<int> list_1;
@@ -132,9 +132,9 @@ int main(int argc, char *argv[]) {
     cout << "outfile.close()" << endl;
 
     try {
-        double  d = 3/0;
-        cout<<d<<"<--"<<endl;
-    }catch (...){
+        double d = 3 / 0;
+        cout << d << "<--" << endl;
+    } catch (...) {
         cout << "Throw a Exception..." << endl;
     }
 
@@ -142,7 +142,32 @@ int main(int argc, char *argv[]) {
     exercise.test();
 
 
-    cout<<"success endl"<<endl;
+    StudentManager studentManager = StudentManager::GetInstance();
+    cout << "插入两个学生" << endl;
+    Student student1 = Student(1, "Mr.Zhang", 12);
+    Student student2 = Student(2, "Mr.Zhang2", 13);
+    cout << &student1 << "\t" << &student2 << endl;
+    studentManager.add(student1);
+    studentManager.add(student2);
+    studentManager.printAllStudent();
+
+    cout << "移除id为1的学生" << endl;
+    studentManager.remove(1);
+    studentManager.printAllStudent();
+
+    cout << "查询id为2的学生" << endl;
+    Student *student = studentManager.query(2);
+    if (student != nullptr) {
+        cout << student << "\t" << endl;
+        StudentManager::printStudent(student);
+    }
+    cout << "\n" << endl;
+
+    cout << "修改id为2的学生的名字" << endl;
+    studentManager.update(2, "Mr.Zhang2 update");
+    studentManager.printAllStudent();
+
+    cout << "success endl" << endl;
     return 0;
 }
 

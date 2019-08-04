@@ -24,6 +24,10 @@ add_executable(
         Box.cpp
         Exercise.cpp
         Util.cpp
+        student/Student.h
+        student/Student.cpp
+        student/StudentManager.h
+        student/StudentManager.cpp
 )
 
 # Searches for a specified prebuilt library and stores the path as a
