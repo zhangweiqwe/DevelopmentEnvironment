@@ -151,7 +151,7 @@ int main(int argc, char *argv[]) {
     studentManager.add(student2);
     studentManager.printAllStudent();
 
-    cout << "移除id为1的学生 " << endl;
+    cout << "移除id为1的学生" << endl;
     studentManager.remove(1);
     studentManager.printAllStudent();
 
