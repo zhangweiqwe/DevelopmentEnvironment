@@ -167,7 +167,6 @@ int main(int argc, char *argv[]) {
     studentManager.update(2, "Mr.Zhang2 update");
     studentManager.printAllStudent();
 
-
     cout << "success endl" << endl;
     return 0;
 }
